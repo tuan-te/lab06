@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TA QUOC TOAN\\source\\repos\\Lab6-Nhóm5-23521757\\Lab6-Nhóm5-23521757.csproj": {}
+    "C:\\Users\\TA QUOC TOAN\\Downloads\\lab06\\Lab6-Nhóm5-23521757.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TA QUOC TOAN\\source\\repos\\Lab6-Nhóm5-23521757\\Lab6-Nhóm5-23521757.csproj": {
+    "C:\\Users\\TA QUOC TOAN\\Downloads\\lab06\\Lab6-Nhóm5-23521757.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TA QUOC TOAN\\source\\repos\\Lab6-Nhóm5-23521757\\Lab6-Nhóm5-23521757.csproj",
+        "projectUniqueName": "C:\\Users\\TA QUOC TOAN\\Downloads\\lab06\\Lab6-Nhóm5-23521757.csproj",
         "projectName": "Lab6-Nhóm5-23521757",
-        "projectPath": "C:\\Users\\TA QUOC TOAN\\source\\repos\\Lab6-Nhóm5-23521757\\Lab6-Nhóm5-23521757.csproj",
+        "projectPath": "C:\\Users\\TA QUOC TOAN\\Downloads\\lab06\\Lab6-Nhóm5-23521757.csproj",
         "packagesPath": "C:\\Users\\TA QUOC TOAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TA QUOC TOAN\\source\\repos\\Lab6-Nhóm5-23521757\\obj\\",
+        "outputPath": "C:\\Users\\TA QUOC TOAN\\Downloads\\lab06\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

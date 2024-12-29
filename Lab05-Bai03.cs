@@ -19,25 +19,23 @@ namespace Lab6_Nhóm5_23521757
             InitializeComponent();
             pictureBox0.Image = Properties.Resources.gif31;
             random = new Random();
-            string imageFolder = Path.Combine(Directory.GetCurrentDirectory(), "Images");
+            string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\.."));
+            string imageFolder = Path.Combine(projectDirectory, "Images"); 
+
             if (Directory.Exists(imageFolder))
             {
                 imagePaths = Directory.GetFiles(imageFolder, "*.jpg");
             }
             else
             {
-                MessageBox.Show("Thư mục 'Images' không tồn tại. Vui lòng kiểm tra lại!");
+                MessageBox.Show("Thư mục 'Images' không tồn tại trong thư mục gốc dự án. Vui lòng kiểm tra lại!");
                 return;
             }
+
             if (imagePaths.Length < 1)
             {
                 MessageBox.Show("Thư mục 'Images' không chứa hình ảnh nào!");
             }
-        }
-
-        private void btnSpin_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSpin_Click_1(object sender, EventArgs e)
@@ -70,11 +68,6 @@ namespace Lab6_Nhóm5_23521757
             {
                 MessageBox.Show($"Lỗi khi hiển thị hình ảnh: {ex.Message}");
             }
-        }
-
-        private void pictureBox0_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

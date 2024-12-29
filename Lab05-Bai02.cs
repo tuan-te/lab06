@@ -12,7 +12,7 @@ namespace Lab6_Nhóm5_23521757
     public partial class Lab05_Bai02 : Form
     {
         private List<Button> buttons = new List<Button>();
-        private List<string> images = new List<string>();
+        private List<Image> images = new List<Image>();
         private Button firstClicked = null;
         private Button secondClicked = null;
         public Lab05_Bai02()
@@ -23,14 +23,17 @@ namespace Lab6_Nhóm5_23521757
         }
         private void LoadImages()
         {
-            string imageFolder = Path.Combine(Directory.GetCurrentDirectory(), "Images");
+            string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\.."));
+            string imageFolder = Path.Combine(projectDirectory, "Images");
+
             if (Directory.Exists(imageFolder))
             {
-                var files = Directory.GetFiles(imageFolder, "*.jpg"); 
+                var files = Directory.GetFiles(imageFolder, "*.jpg");
                 foreach (var file in files)
                 {
-                    images.Add(file);
-                    images.Add(file); 
+                    Image img = Image.FromFile(file); 
+                    images.Add(img); 
+                    images.Add(img); 
                 }
             }
         }
@@ -62,16 +65,16 @@ namespace Lab6_Nhóm5_23521757
                 tableLayoutPanel.Controls.Add(button);
             }
         }
-
         private void Button_Click(object sender, EventArgs e)
         {
             if (firstClicked != null && secondClicked != null)
                 return;
+
             Button clickedButton = sender as Button;
             if (clickedButton == null || clickedButton == firstClicked)
                 return;
-            string imagePath = clickedButton.Tag.ToString();
-            clickedButton.BackgroundImage = Image.FromFile(imagePath);
+
+            clickedButton.BackgroundImage = clickedButton.Tag as Image; 
             clickedButton.BackgroundImageLayout = ImageLayout.Stretch;
 
             if (firstClicked == null)
@@ -87,18 +90,19 @@ namespace Lab6_Nhóm5_23521757
 
         private void CheckForMatch()
         {
-            if (firstClicked.Tag.ToString() == secondClicked.Tag.ToString())
+            if (firstClicked.Tag == secondClicked.Tag) 
             {
                 System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-                timer.Interval = 500; 
+                timer.Interval = 500;
                 timer.Tick += (s, e) =>
                 {
-                    tableLayoutPanel.Controls.Remove(firstClicked);
-                    tableLayoutPanel.Controls.Remove(secondClicked);
+                    firstClicked.Visible = false;
+                    secondClicked.Visible = false;
                     firstClicked = null;
                     secondClicked = null;
                     timer.Stop();
-                    if (tableLayoutPanel.Controls.Count == 0)
+
+                    if (tableLayoutPanel.Controls.Cast<Control>().All(c => !c.Visible))
                     {
                         MessageBox.Show("Bạn đã chiến thắng!");
                     }
@@ -108,7 +112,7 @@ namespace Lab6_Nhóm5_23521757
             else
             {
                 System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-                timer.Interval = 1000; 
+                timer.Interval = 1000;
                 timer.Tick += (s, e) =>
                 {
                     firstClicked.BackgroundImage = null;

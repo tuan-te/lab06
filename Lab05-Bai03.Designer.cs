@@ -50,7 +50,6 @@
             pictureBox0.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox0.TabIndex = 0;
             pictureBox0.TabStop = false;
-            pictureBox0.Click += pictureBox0_Click;
             // 
             // lblResult
             // 
